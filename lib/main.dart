@@ -47,7 +47,7 @@ class MainApp extends StatelessWidget {
           primaryColor: kcBackgroundColor,
           focusColor: kcPrimaryColor,
           textTheme: GoogleFonts.openSansTextTheme().apply(
-            bodyColor: Colors.white
+            bodyColor: Colors.white30
           ),
         ),
         routerDelegate: stackedRouter.delegate(),
