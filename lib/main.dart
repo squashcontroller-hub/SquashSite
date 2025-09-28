@@ -13,20 +13,20 @@ import 'package:url_strategy/url_strategy.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  //WidgetsFlutterBinding.ensureInitialized();
 
   if(kIsWeb){
     await Firebase.initializeApp(options: FirebaseOptions(
         apiKey: "AIzaSyDXqdyJ57WCBfUiYFxjmBKDCHK0LAgS5dQ",
         authDomain: "squash-site.firebaseapp.com",
         projectId: "squash-site",
-        storageBucket: "squash-site.firebasestorage.app",
+        storageBucket: "squash-site.appspot.com",
         messagingSenderId: "585016894890",
         appId: "1:585016894890:web:693628e3ac3066741af7d3",
         measurementId: "G-T5ZYCPV3M3"
     ));
   }else{
-    Firebase.initializeApp();
+    await Firebase.initializeApp();
   }
 
 

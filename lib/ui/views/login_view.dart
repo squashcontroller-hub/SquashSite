@@ -38,6 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: emailCtrl,
                 decoration: const InputDecoration(labelText: "Email")),
             TextField(
+                style: TextStyle(color: Colors.black),
                 controller: passCtrl,
                 decoration: const InputDecoration(labelText: "Hasło"),
                 obscureText: true),
