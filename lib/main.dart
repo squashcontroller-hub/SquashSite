@@ -8,6 +8,7 @@ import 'package:squashwebsite/app/app.dialogs.dart';
 import 'package:squashwebsite/app/app.locator.dart';
 import 'package:squashwebsite/app/app.router.dart';
 import 'package:squashwebsite/ui/common/app_colors.dart';
+import 'package:squashwebsite/ui/views/auth_gate.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -43,21 +44,20 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveApp(
-      builder: (_) => MaterialApp.router(
+      builder: (_) => MaterialApp(
         title: 'Testowa strona',
         theme: Theme.of(context).copyWith(
           primaryColor: kcBackgroundColor,
           focusColor: kcPrimaryColor,
           textTheme: GoogleFonts.openSansTextTheme().apply(
-            bodyColor: Colors.white30
+            bodyColor: Colors.white30,
           ),
         ),
-        routerDelegate: stackedRouter.delegate(),
-        routeInformationParser: stackedRouter.defaultRouteParser(),
+        home: const AuthGate(), // ✅ zamiast routera startujemy od AuthGate
       ),
     ).animate().fadeIn(
-          delay: const Duration(milliseconds: 50),
-          duration: const Duration(milliseconds: 400),
-        );
+      delay: const Duration(milliseconds: 50),
+      duration: const Duration(milliseconds: 400),
+    );
   }
 }
