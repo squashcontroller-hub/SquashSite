@@ -53,7 +53,7 @@ class MainApp extends StatelessWidget {
             bodyColor: Colors.white30,
           ),
         ),
-        home: const AuthGate(), // ✅ zamiast routera startujemy od AuthGate
+        home: const AuthGate(),
       ),
     ).animate().fadeIn(
       delay: const Duration(milliseconds: 50),

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'register_page.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final emailCtrl = TextEditingController();
   final passCtrl = TextEditingController();
   String? errorMessage;
 
-  Future<void> signIn() async {
+  Future<void> register() async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailCtrl.text,
         password: passCtrl.text,
       );
+      Navigator.pop(context); // wróć do logowania
     } on FirebaseAuthException catch (e) {
       setState(() => errorMessage = e.message);
     }
@@ -28,13 +28,12 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Logowanie")),
+      appBar: AppBar(title: const Text("Rejestracja")),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             TextField(
-              style: TextStyle(color: Colors.black),
                 controller: emailCtrl,
                 decoration: const InputDecoration(labelText: "Email")),
             TextField(
@@ -44,14 +43,7 @@ class _LoginPageState extends State<LoginPage> {
             if (errorMessage != null)
               Text(errorMessage!, style: const TextStyle(color: Colors.red)),
             const SizedBox(height: 20),
-            ElevatedButton(onPressed: signIn, child: const Text("Zaloguj")),
-            TextButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const RegisterPage()));
-              },
-              child: const Text("Nie masz konta? Zarejestruj się"),
-            ),
+            ElevatedButton(onPressed: register, child: const Text("Utwórz konto")),
           ],
         ),
       ),
