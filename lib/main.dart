@@ -12,8 +12,10 @@ import 'package:url_strategy/url_strategy.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   if(kIsWeb){
-    Firebase.initializeApp(options: FirebaseOptions(
+    await Firebase.initializeApp(options: FirebaseOptions(
         apiKey: "AIzaSyDXqdyJ57WCBfUiYFxjmBKDCHK0LAgS5dQ",
         authDomain: "squash-site.firebaseapp.com",
         projectId: "squash-site",
