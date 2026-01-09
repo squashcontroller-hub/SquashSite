@@ -3,21 +3,15 @@ import 'package:flutter/material.dart';
 import 'NavItems/NavItem.dart';
 import 'NavItems/NavPage.dart';
 
-class MainNavigationBar extends StatefulWidget {
-  const MainNavigationBar({super.key});
+class MainNavigationBar extends StatelessWidget {
+  final NavPage currentPage;
+  final ValueChanged<NavPage> onNavigate;
 
-  @override
-  State<MainNavigationBar> createState() => _MainNavigationBarState();
-}
-
-class _MainNavigationBarState extends State<MainNavigationBar> {
-  NavPage currentPage = NavPage.dashboard;
-
-  void _navigate(NavPage page) {
-    setState(() => currentPage = page);
-
-    // TODO: Navigator / GoRouter
-  }
+  const MainNavigationBar({
+    super.key,
+    required this.currentPage,
+    required this.onNavigate,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +26,6 @@ class _MainNavigationBarState extends State<MainNavigationBar> {
       ),
       child: Row(
         children: [
-          // LOGO
           Row(
             children: const [
               Icon(Icons.emoji_events_outlined,
@@ -48,37 +41,32 @@ class _MainNavigationBarState extends State<MainNavigationBar> {
               ),
             ],
           ),
-
           const Spacer(),
-
           Row(
             children: [
               NavItem(
                 icon: Icons.home_outlined,
                 label: 'Dashboard',
                 isActive: currentPage == NavPage.dashboard,
-                onTap: () => _navigate(NavPage.dashboard),
+                onTap: () => onNavigate(NavPage.dashboard),
               ),
-              const SizedBox(width: 8),
               NavItem(
                 icon: Icons.calendar_today_outlined,
                 label: 'Schedule',
                 isActive: currentPage == NavPage.schedule,
-                onTap: () => _navigate(NavPage.schedule),
+                onTap: () => onNavigate(NavPage.schedule),
               ),
-              const SizedBox(width: 8),
               NavItem(
                 icon: Icons.group_outlined,
                 label: 'Friends',
                 isActive: currentPage == NavPage.friends,
-                onTap: () => _navigate(NavPage.friends),
+                onTap: () => onNavigate(NavPage.friends),
               ),
-              const SizedBox(width: 8),
               NavItem(
                 icon: Icons.person_outline,
                 label: 'Profile',
                 isActive: currentPage == NavPage.profile,
-                onTap: () => _navigate(NavPage.profile),
+                onTap: () => onNavigate(NavPage.profile),
               ),
             ],
           ),
@@ -87,3 +75,4 @@ class _MainNavigationBarState extends State<MainNavigationBar> {
     );
   }
 }
+

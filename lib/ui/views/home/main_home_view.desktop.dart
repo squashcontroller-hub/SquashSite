@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:squashwebsite/ui/common/app_constants.dart';
+import 'package:squashwebsite/ui/widgets/HomePage/NavItems/NavPage.dart';
 
 import '../../widgets/HomePage/AddMatch.dart';
 import '../../widgets/HomePage/ContainerWithInfo.dart';
@@ -29,13 +30,17 @@ class MainHomeViewDesktop extends StatefulWidget {
 }
 
 class _MainHomeViewDesktopState extends State<MainHomeViewDesktop> {
+  NavPage _currentPage = NavPage.dashboard;
 
+  void _onNavigate(NavPage page) {
+    setState(() {
+      _currentPage = page;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: Column(children: [
-        MainNavigationBar(),
+    return Center(child: Column(children: [
 
         AddMatch(),
 
@@ -45,8 +50,9 @@ class _MainHomeViewDesktopState extends State<MainHomeViewDesktop> {
 
         RatingsContainer()
 
-      ]))
+      ])
     );
   }
 
 }
+

@@ -10,6 +10,7 @@ import 'package:squashwebsite/app/app.router.dart';
 import 'package:squashwebsite/ui/common/app_colors.dart';
 import 'package:squashwebsite/ui/views/auth_gate.dart';
 import 'package:squashwebsite/ui/views/home/main_home_view.desktop.dart';
+import 'package:squashwebsite/ui/widgets/HomePage/HomePageRou.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -56,7 +57,7 @@ class MainApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         //home: const AuthGate(),
-        home: const HomePage()
+        home: const HomePageRou()
 
       ),
     ).animate().fadeIn(
