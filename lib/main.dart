@@ -56,8 +56,8 @@ class MainApp extends StatelessWidget {
           ),
         ),
         debugShowCheckedModeBanner: false,
-        //home: const AuthGate(),
-        home: const HomePageRou()
+        home: const AuthGate(),
+        //home: const HomePageRou()
 
       ),
     ).animate().fadeIn(
