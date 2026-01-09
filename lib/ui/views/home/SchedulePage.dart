@@ -47,6 +47,8 @@ class SchedulePage extends StatelessWidget {
                     horizontal: 16,
                     vertical: 12,
                   ),
+
+                  foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),

@@ -16,12 +16,13 @@ class CalendarMock extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
+                color: Color(0xFF16A34A)
               ),
             ),
             Spacer(),
             Icon(Icons.chevron_left),
             SizedBox(width: 8),
-            Text('Today'),
+            Text('Today', style: TextStyle(color: Color(0xFF64748B))),
             SizedBox(width: 8),
             Icon(Icons.chevron_right),
           ],
