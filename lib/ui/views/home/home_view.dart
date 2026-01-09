@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:squashwebsite/ui/views/home/main_home_view.desktop.dart';
+import 'package:squashwebsite/ui/widgets/HomePage/HomePageRou.dart';
 import 'package:stacked/stacked.dart';
 
 import 'home_view.tablet.dart';
@@ -15,7 +16,7 @@ class HomeView extends StackedView<HomeViewModel> {
     return ScreenTypeLayout.builder(
       mobile: (_) => const HomeViewMobile(),
       tablet: (_) => const HomeViewTablet(),
-      desktop: (_) => HomePage(),
+      desktop: (_) => HomePageRou(),
     );
   }
 
