@@ -41,9 +41,9 @@ class _MainHomeViewDesktopState extends State<MainHomeViewDesktop> {
 
         ContainerWithInfo(),
 
-        //MainContainer(),
+        MainContainer(),
 
-        //RatingsContainer()
+        RatingsContainer()
 
       ]))
     );
