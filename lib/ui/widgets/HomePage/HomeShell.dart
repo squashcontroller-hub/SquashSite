@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../views/home/FriendsPage.dart';
+import '../../views/home/ProfilePage.dart';
 import '../../views/home/SchedulePage.dart';
 import '../../views/home/main_home_view.desktop.dart';
 import 'NavItems/NavPage.dart';
@@ -29,7 +30,7 @@ class _HomeShellState extends State<HomeShell> {
       case NavPage.friends:
         return FriendsPage();
       case NavPage.profile:
-        return const Center(child: Text('Profile'));
+        return ProfilePage();
       case NavPage.dashboard:
         return const MainHomeViewDesktop();
 
